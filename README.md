@@ -16,10 +16,10 @@ A personal learning journey revisiting React Native - documenting progress, expe
 
 ```bash
 # Clone the repo
-git clone https://github.com/<your-username>/what-if-i-learn-react-native-again.git
+git clone https://github.com/hoangnv170752/what-if-i-learn-react-native-again.git
 cd what-if-i-learn-react-native-again
 
-# Install dependencies (once project is initialized)
+# Install dependencies
 npm install
 
 # Start the dev server
