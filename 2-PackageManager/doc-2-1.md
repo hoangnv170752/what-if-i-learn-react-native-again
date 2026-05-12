@@ -6,28 +6,28 @@
 
 ## 2.1 Expo SDK ↔ React Native ↔ Node.js Version Map
 
-| Expo SDK | React Native | Node.js (min) | Notes |
-|----------|-------------|---------------|-------|
-| SDK 55   | 0.80        | 20            | Latest (2025) |
-| SDK 54   | 0.79        | 20            | |
-| SDK 53   | 0.79        | 20 (recommended) | Node 18 EOL April 2025, still works but not recommended |
-| SDK 52   | 0.76 / 0.77 | 18            | Supports both RN 0.76 and 0.77 |
-| SDK 51   | 0.74 / 0.75 | 18            | Supports both RN 0.74 and 0.75 |
-| SDK 50   | 0.73        | 18            | Node 18 became default on EAS Build |
-| SDK 49   | 0.72        | 16            | Last SDK supporting Node 16 |
+| Expo SDK | React Native | Node.js (min)    | Notes                                                   |
+| -------- | ------------ | ---------------- | ------------------------------------------------------- |
+| SDK 55   | 0.80         | 20               | Latest (2025)                                           |
+| SDK 54   | 0.79         | 20               |                                                         |
+| SDK 53   | 0.79         | 20 (recommended) | Node 18 EOL April 2025, still works but not recommended |
+| SDK 52   | 0.76 / 0.77  | 18               | Supports both RN 0.76 and 0.77                          |
+| SDK 51   | 0.74 / 0.75  | 18               | Supports both RN 0.74 and 0.75                          |
+| SDK 50   | 0.73         | 18               | Node 18 became default on EAS Build                     |
+| SDK 49   | 0.72         | 16               | Last SDK supporting Node 16                             |
 
 ---
 
 ## 2.2 React Native ↔ Node.js ↔ JDK Version Map
 
-| React Native | Node.js (min) | JDK   | Android SDK (min) | Xcode (min) |
-|-------------|---------------|-------|-------------------|-------------|
-| 0.84–0.86   | 22.11.0       | 17    | Android 7.0       | 16.1        |
-| 0.81–0.83   | 20.19.4       | 17    | Android 7.0       | 16.1        |
-| 0.76–0.80   | 18            | 17    | Android 7.0       | 15.1        |
-| 0.74–0.75   | 18            | 17    | Android 6.0       | 15.1        |
-| 0.73        | 18            | 17    | Android 5.0       | 15.1        |
-| 0.71–0.72   | 16            | 11    | Android 5.0       | 15.1        |
+| React Native | Node.js (min) | JDK | Android SDK (min) | Xcode (min) |
+| ------------ | ------------- | --- | ----------------- | ----------- |
+| 0.84–0.86   | 22.11.0       | 17  | Android 7.0       | 16.1        |
+| 0.81–0.83   | 20.19.4       | 17  | Android 7.0       | 16.1        |
+| 0.76–0.80   | 18            | 17  | Android 7.0       | 15.1        |
+| 0.74–0.75   | 18            | 17  | Android 6.0       | 15.1        |
+| 0.73         | 18            | 17  | Android 5.0       | 15.1        |
+| 0.71–0.72   | 16            | 11  | Android 5.0       | 15.1        |
 
 > **Key takeaway:** If you're starting a new project today, use **Node 20+** (LTS) and **JDK 17**.
 
@@ -37,15 +37,15 @@
 
 ### Overview
 
-| Feature | npm | Yarn Classic (1.x) | Yarn Modern (3+/Berry) | pnpm |
-|---------|-----|---------------------|------------------------|------|
-| Comes with Node.js | Yes | No (install separately) | No | No |
-| Speed | Moderate | Fast | Fast | Fastest |
-| Disk usage | High (flat node_modules) | High (flat node_modules) | Low (PnP or node_modules) | Low (content-addressable store) |
-| Lockfile | `package-lock.json` | `yarn.lock` | `yarn.lock` | `pnpm-lock.yaml` |
-| Workspaces | Yes (v7+) | Yes | Yes | Yes |
-| Deterministic | Yes | Yes | Yes | Yes |
-| Plug'n'Play (PnP) | No | No | Yes (optional) | No |
+| Feature            | npm                   | Yarn Classic (1.x)      | Yarn Modern (3+/Berry) | pnpm                            |
+| ------------------ | --------------------- | ----------------------- | ---------------------- | ------------------------------- |
+| Comes with Node.js | Yes                   | No (install separately) | No                     | No                              |
+| Speed              | Moderate              | Fast                    | Fast                   | Fastest                         |
+| Disk usage         | High                  | High                    | Low                    | Low (content-addressable store) |
+| Lockfile           | `package-lock.json` | `yarn.lock`           | `yarn.lock`          | `pnpm-lock.yaml`              |
+| Workspaces         | Yes (v7+)             | Yes                     | Yes                    | Yes                             |
+| Deterministic      | Yes                   | Yes                     | Yes                    | Yes                             |
+| Plug'n'Play (PnP)  | No                    | No                      | Yes (optional)         | No                              |
 
 ---
 
@@ -65,11 +65,13 @@ npm run ios
 ```
 
 **Pros:**
+
 - Zero setup — comes with Node
 - Widest community support
 - Works out of the box with React Native & Expo
 
 **Cons:**
+
 - Slower than Yarn/pnpm for large projects
 - Flat `node_modules` can cause phantom dependency issues
 
@@ -94,11 +96,13 @@ yarn ios
 ```
 
 **Pros:**
+
 - Faster than npm (parallel installs, offline cache)
 - Very well-tested with React Native & Expo
 - Historically the recommended choice for RN projects
 
 **Cons:**
+
 - Same flat `node_modules` as npm
 - Yarn Classic is in maintenance mode (no new features)
 
@@ -121,16 +125,19 @@ yarn add react-native-reanimated
 ```
 
 **Pros:**
+
 - PnP mode = no `node_modules`, instant installs
 - Strict dependency resolution (no phantom deps)
 - Excellent monorepo support
 
 **Cons:**
+
 - PnP mode **does not work** with React Native (Metro bundler expects `node_modules`)
 - Must use `nodeLinker: node-modules` in `.yarnrc.yml` for RN/Expo
 - More complex setup
 
 > **If using Yarn Berry with React Native**, add this to `.yarnrc.yml`:
+>
 > ```yaml
 > nodeLinker: node-modules
 > ```
@@ -156,16 +163,19 @@ pnpm run ios
 ```
 
 **Pros:**
+
 - Fastest install times
 - Saves significant disk space (shared store across projects)
 - Strict by default (prevents phantom dependencies)
 
 **Cons:**
+
 - React Native / Metro bundler has issues with symlinked `node_modules`
 - Requires workaround: set `node-linker=hoisted` in `.npmrc`
 - Some Expo packages may need patching
 
 > **If using pnpm with React Native**, add this to `.npmrc`:
+>
 > ```ini
 > node-linker=hoisted
 > ```
@@ -174,12 +184,12 @@ pnpm run ios
 
 ## 2.4 Recommendation for React Native / Expo Projects
 
-| Scenario | Recommended |
-|----------|------------|
-| New Expo project (beginner) | **npm** — zero config, just works |
-| Team project, monorepo | **Yarn Classic** or **Yarn Berry** (with `nodeLinker: node-modules`) |
-| Performance-focused, experienced dev | **pnpm** (with `node-linker=hoisted`) |
-| Maximum compatibility, least headaches | **npm** or **Yarn Classic** |
+| Scenario                               | Recommended                                                                        |
+| -------------------------------------- | ---------------------------------------------------------------------------------- |
+| New Expo project (beginner)            | **npm** — zero config, just works                                           |
+| Team project, monorepo                 | **Yarn Classic** or **Yarn Berry** (with `nodeLinker: node-modules`) |
+| Performance-focused, experienced dev   | **pnpm** (with `node-linker=hoisted`)                                      |
+| Maximum compatibility, least headaches | **npm** or **Yarn Classic**                                            |
 
 ### TL;DR
 
