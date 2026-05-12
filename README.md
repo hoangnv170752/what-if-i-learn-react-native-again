@@ -8,9 +8,9 @@ A personal learning journey revisiting React Native - documenting progress, expe
 
 ## Tech Stack
 
-- **React Native** — Cross-platform mobile framework
-- **Expo** *(planned)* — Toolchain for rapid development
-- **TypeScript** *(planned)* — Type-safe JavaScript
+- **React Native** - Cross-platform mobile framework
+- **Expo** - Toolchain for rapid development
+- **TypeScript**  - Type-safe JavaScript
 
 ## Getting Started
 
